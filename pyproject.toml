@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pythonproject5"
+version = "0.1.0"
+description = ""
+authors = ["Owwwen86 <smirnovkirill@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.1.7"
+envparse = "^0.2.0"
+psycopg2-binary = "^2.9.5"
+gunicorn = "^20.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
