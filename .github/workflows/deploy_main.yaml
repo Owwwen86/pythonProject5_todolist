@@ -20,7 +20,8 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/diploma_11:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/
+pythonProject5_todolist:latest
 
   deploy:
     needs: build
