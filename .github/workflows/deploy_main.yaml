@@ -37,5 +37,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           sourse: "deploy/*"
-          target: "diploma_11"
+          target: "pythonproject5_todolist"
           strip_components: 1
