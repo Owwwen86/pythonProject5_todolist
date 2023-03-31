@@ -58,3 +58,9 @@ docker-compose exec frontend /bin/sh - переходим в контейнер 
 cd /etc/nginx/conf.d
 
 python manage.py collectstatic -c - собираем статику (-c  -флаг для перезаписи)
+
+poetry add ansible-vault-win --group dev - библиотека для передачи secrets 
+
+ansible-vault-win -утилита для шифровки файла
+
+ansible-vault encrypt (шифруем) decrypt (дешифруем)
