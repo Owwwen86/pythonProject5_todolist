@@ -20,7 +20,7 @@ services:
     env_file: .env
     depends_on:
       db:
-        condition: service_healthy
+        condition: service_started
 
   collect_static:
     image: owwwen86/pythonproject5_todolist:latest
@@ -31,7 +31,7 @@ services:
     command: python manage.py collectstatic -c --no-input
 
   frontend:
-    image: sermalenk/skypro-front:lesson-34
+    image: sermalenk/skypro-front:lesson-35
     ports:
       - "80:80"
     depends_on:
