@@ -72,3 +72,11 @@ https://django-extensions.readthedocs.io/ (django-extensions --group dev) - ра
 kwargs['style'] = {'input_type': 'password'} - html стили, в данном случае для замены символов при вводе пароля
 
 docker-compose up -d db - запускаем контейнеры
+
+python manage.py shell_plus - просмотр базы, User.objects.all() - выводим список пользователей
+
+tu = User.objects.last() - присматриваем переменной последнего пользователя, tu.password - смотрим пароль
+
+poetry add social-auth-app-django - для регистрации по VK
+
+
