@@ -64,3 +64,11 @@ poetry add ansible-vault-win --group dev - библиотека для пере�
 ansible-vault-win -утилита для шифровки файла
 
 ansible-vault encrypt (шифруем) decrypt (дешифруем)
+
+https://www.django-rest-framework.org/ - сайт drf
+
+https://django-extensions.readthedocs.io/ (django-extensions --group dev) - расширяет возможности manage.py
+
+kwargs['style'] = {'input_type': 'password'} - html стили, в данном случае для замены символов при вводе пароля
+
+docker-compose up -d db - запускаем контейнеры

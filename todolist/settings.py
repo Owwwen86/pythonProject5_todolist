@@ -43,9 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Third party apps
+    'rest_framework',
     # First party apps
     'todolist.core',
 ]
+
+if DEBUG:
+    INSTALLED_APPS += [
+        'django_extensions',
+        ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
