@@ -79,4 +79,8 @@ tu = User.objects.last() - присматриваем переменной по�
 
 poetry add social-auth-app-django - для регистрации по VK
 
+python manage.py startapp goals todolist/goals - создание нового app
+
+
+
 
