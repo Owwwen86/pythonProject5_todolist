@@ -106,3 +106,4 @@ tzdata==2023.3 ; python_version >= "3.11" and python_version < "4.0" and sys_pla
 Django~=4.1.7
 djangorestframework~=3.14.0
 envparse~=0.2.0
+django-filter~=23.1

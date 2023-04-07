@@ -81,6 +81,8 @@ poetry add social-auth-app-django - для регистрации по VK
 
 python manage.py startapp goals todolist/goals - создание нового app
 
+def validate_category - валидация, после символа нижнего подчеркивания то, что мы валидируем.
 
+with transaction.atomic(): - контекстный менеджер, для того чтобы либо все команды выполнились, либо все не выполнились, если одна или несколько из них упали с ошибкой.
 
 
