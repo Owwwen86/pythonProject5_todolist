@@ -17,7 +17,6 @@ class BoardPermissions(IsAuthenticated):
 
 
 class GoalCategoryPermissions(IsAuthenticated):
-    """Permission for GoalCategory"""
 
     def has_object_permission(self, request, view, obj):
         if request.method in SAFE_METHODS:
@@ -32,14 +31,6 @@ class GoalCategoryPermissions(IsAuthenticated):
                 BoardParticipant.Role.writer,
             ],
         ).exists()
-# class GoalCategoryPermissions(IsAuthenticated):
-#
-#     def has_object_permission(self, request: Request, view, goal_category: GoalCategory) -> bool:
-#         _filters: dict[str: Any] = {'user_id': request.user.id, 'board_id': goal_category.board_id}
-#         if request.method not in SAFE_METHODS:
-#             _filters['role'] = [BoardParticipant.Role.owner, BoardParticipant.Role.writer]
-#
-#         return BoardParticipant.objects.filter(**_filters).exists()
 
 
 class GoalPermissions(IsAuthenticated):
