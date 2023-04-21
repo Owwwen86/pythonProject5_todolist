@@ -38,7 +38,7 @@ docker pull python:3.11.2-slim
 
 poetry export -f requirements.txt -o requirements.txt
 
-docker-compose logs -f
+docker-compose logs -f - просмотр logs
 
 docker-compose exec api /bin/bash - заходим внутрь контейнера
 
@@ -85,4 +85,9 @@ def validate_category - валидация, после символа нижне
 
 with transaction.atomic(): - контекстный менеджер, для того чтобы либо все команды выполнились, либо все не выполнились, если одна или несколько из них упали с ошибкой.
 
+null=True - добавляем параметр после изменений в модели для избежания конфликта с уже созданными миграциями, после заполнения
+пустой миграции с добавлением досок убираем этот параметр.
 
+python manage.py makemigrations goals --empty -n create_new_objects - создание пустой миграции
+
+objects.bulk_create - передает список объектов пока еще не созданных в БД
