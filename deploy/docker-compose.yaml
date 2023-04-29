@@ -30,6 +30,7 @@ services:
       depends_on:
         db:
           condition: service_healthy
+      command: python manage.py runbot
 
   collect_static:
     image: owwwen86/pythonproject5_todolist:latest
