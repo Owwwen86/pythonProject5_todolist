@@ -41,7 +41,7 @@ services:
         condition: service_healthy
     ports:
       - "8000:8000"
-    command: python manage.py runbot
+    command: python manage.py runbot 0.0.0.0:8000
 
   collect_static:
     build: .
