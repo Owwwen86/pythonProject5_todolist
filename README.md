@@ -91,3 +91,7 @@ null=True - добавляем параметр после изменений в
 python manage.py makemigrations goals --empty -n create_new_objects - создание пустой миграции
 
 objects.bulk_create - передает список объектов пока еще не созданных в БД
+
+pydantic - альтернатива работы с @dataclass
+
+python manage.py runbot - запуск бота
