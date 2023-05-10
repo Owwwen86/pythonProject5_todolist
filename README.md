@@ -95,3 +95,7 @@ objects.bulk_create - передает список объектов пока е
 pydantic - альтернатива работы с @dataclass
 
 python manage.py runbot - запуск бота
+
+pytest --fixtures - просмотр фикстур
+
+|= - оператор склейки словаря

@@ -17,10 +17,6 @@ class BoardCreateView(generics.CreateAPIView):
     serializer_class = BoardCreateSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    def perform_create(self, serializer):
-        """Making the current user the owner of the board"""
-        BoardParticipant.objects.create(user=self.request.user, board=serializer.save())
-
 
 class BoardListView(generics.ListAPIView):
     serializer_class = BoardListSerializer
