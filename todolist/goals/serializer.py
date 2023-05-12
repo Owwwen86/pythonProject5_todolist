@@ -7,23 +7,6 @@ from todolist.core.serializers import ProfileSerializer
 from todolist.goals.models import GoalCategory, Goal, GoalComment, Board, BoardParticipant
 
 
-class BoardCreateSerializer(serializers.ModelSerializer):
-    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
-
-    class Meta:
-        model = Board
-        fields = '__all__'
-        read_only_fields = ('id', 'created', 'updated', 'is_deleted')
-
-    def create(self, validated_data):
-        user = validated_data.pop("user")
-        board = Board.objects.create(**validated_data)
-        BoardParticipant.objects.create(
-            user=user, board=board, role=BoardParticipant.Role.owner
-        )
-        return board
-
-
 class BoardParticipantsSerializer(serializers.ModelSerializer):
     role = serializers.ChoiceField(required=True, choices=BoardParticipant.Role.choices[1:])
     user = serializers.SlugRelatedField(slug_field='username', queryset=User.objects.all())
@@ -34,6 +17,24 @@ class BoardParticipantsSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'created', 'updated', 'board')
 
 
+class BoardCreateSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = Board
+        fields = '__all__'
+        read_only_fields = ('id', 'created', 'updated')
+
+    def create(self, validated_data):
+        user = validated_data.pop("user")
+        board = Board.objects.create(**validated_data)
+        board.is_deleted = False
+        BoardParticipant.objects.create(
+            user=user, board=board, role=BoardParticipant.Role.owner
+        )
+        return board
+
+
 class BoardSerializer(serializers.ModelSerializer):
     participants = BoardParticipantsSerializer(many=True)
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
@@ -41,7 +42,7 @@ class BoardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Board
         fields = '__all__'
-        read_only_fields = ('id', 'created', 'updated', 'is_deleted')
+        read_only_fields = ('id', 'created', 'updated')
 
     def update(self, instance: Board, validated_data: dict) -> Board:
         owner = validated_data.pop("user")

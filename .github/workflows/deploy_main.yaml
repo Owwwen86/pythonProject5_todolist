@@ -49,7 +49,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd pythonproject5_todolist
-            echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose pull | sudo -S docker-compose up -d
+            echo ${{ secrets.SSH_PASSWORD }} | docker-compose pull | docker-compose up -d
       - name: Clean up after deploy
         if: always()
         uses: appleboy/ssh-action@master
@@ -58,4 +58,4 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-             echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker system prune -a -f
+             echo ${{ secrets.SSH_PASSWORD }} | docker system prune -a -f
